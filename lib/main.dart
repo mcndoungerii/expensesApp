@@ -45,42 +45,43 @@ class MyHomePage extends StatelessWidget {
             Column(
               children: transactions.map((transaction) {
                 return Card(
-                    child: Row(
-                  children: <Widget>[
-                    Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.purple, width: 2),
-                      ),
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        transaction.amount.toString(),
-                        style: TextStyle(
-                          color: Colors.purple,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        margin:
+                            EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.purple, width: 2),
                         ),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          transaction.title,
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          '\$${transaction.amount}',
                           style: TextStyle(
-                            fontSize: 16,
+                            color: Colors.purple,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(
-                          transaction.date.toString(),
-                          style: TextStyle(color: Colors.grey),
-                        )
-                      ],
-                    )
-                  ],
-                ));
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            transaction.title,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            transaction.date.toString(),
+                            style: TextStyle(color: Colors.grey),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                );
               }).toList(),
             )
           ],
