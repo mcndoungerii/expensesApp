@@ -12,8 +12,18 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   final List<Transaction> transactions = [
-    Transaction(id: '1', title: 'Crops', amount: 20000, date: DateTime.now()),
-    Transaction(id: '2', title: 'Products', amount: 30000, date: DateTime.now()),
+    Transaction(
+      id: '1',
+      title: 'New Shoes',
+      amount: 20000,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: '2',
+      title: 'Weekly Groceries',
+      amount: 30000,
+      date: DateTime.now(),
+    ),
   ];
   @override
   Widget build(BuildContext context) {
@@ -32,9 +42,12 @@ class MyHomePage extends StatelessWidget {
                 child: Text('CHARTS!'),
               ),
             ),
-            Card(
-              color: Colors.red,
-              child: Text('LIST OF TX'),
+            Column(
+              children: transactions.map((transaction) {
+                return Card(
+                  child: Text(transaction.title),
+                );
+              }).toList(),
             )
           ],
         ));
