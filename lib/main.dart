@@ -48,15 +48,20 @@ class MyHomePage extends StatelessWidget {
                     child: Row(
                   children: <Widget>[
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                      margin:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 2
-                        ),
+                        border: Border.all(color: Colors.purple, width: 2),
                       ),
                       padding: EdgeInsets.all(10),
-                      child: Text(transaction.amount.toString()),
+                      child: Text(
+                        transaction.amount.toString(),
+                        style: TextStyle(
+                          color: Colors.purple,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                     Column(
                       children: <Widget>[
