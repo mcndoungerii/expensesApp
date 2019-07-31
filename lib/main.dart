@@ -6,9 +6,9 @@ import './widgets/chart.dart';
 import './models/transaction.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations(
-    [DeviceOrientation.portraitUp, DeviceOrientation.portraitUp],
-  );
+  //SystemChrome.setPreferredOrientations(
+  //  [DeviceOrientation.portraitUp, DeviceOrientation.portraitUp],
+  //);
   runApp(MyApp());
 }
 
@@ -55,19 +55,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 't1',
+    //   title: 'New Shoes',
+    //   amount: 69.99,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'Weekly Groceries',
+    //   amount: 16.53,
+    //   date: DateTime.now(),
+    // ),
   ];
+
+  bool _showChart = false;
 
   List<Transaction> get _recentTransactions {
     return _userTransactions.where((tx) {
@@ -133,6 +135,20 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Show Chart'),
+                Switch(
+                  value: _showChart,
+                  onChanged: (val) {
+                    setState(() {
+                      _showChart = val;
+                    });
+                  },
+                ),
+              ],
+            ),
             Container(
               height: (MediaQuery.of(context).size.height -
                       appBar.preferredSize.height) *
