@@ -35,8 +35,6 @@ class _NewTransactionState extends State<NewTransaction> {
     Navigator.of(context).pop();
   }
 
-  //New Method to show a Date Picker
-
   void _presentDatePicker() {
     showDatePicker(
       context: context,
@@ -47,11 +45,11 @@ class _NewTransactionState extends State<NewTransaction> {
       if (pickedDate == null) {
         return;
       }
-
       setState(() {
         _selectedDate = pickedDate;
       });
     });
+    print('...');
   }
 
   @override
@@ -66,18 +64,17 @@ class _NewTransactionState extends State<NewTransaction> {
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
               controller: _titleController,
-              keyboardType: TextInputType.number,
               onSubmitted: (_) => _submitData(),
-              //onChanged: (val) {
-              //titleInput = val;
-              //},
+              // onChanged: (val) {
+              //   titleInput = val;
+              // },
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
               controller: _amountController,
               keyboardType: TextInputType.number,
               onSubmitted: (_) => _submitData(),
-              //onChanged: (val) => amountInput = val,
+              // onChanged: (val) => amountInput = val,
             ),
             Container(
               height: 70,
@@ -94,10 +91,12 @@ class _NewTransactionState extends State<NewTransaction> {
                     textColor: Theme.of(context).primaryColor,
                     child: Text(
                       'Choose Date',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     onPressed: _presentDatePicker,
-                  )
+                  ),
                 ],
               ),
             ),

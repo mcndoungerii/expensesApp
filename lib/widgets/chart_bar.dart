@@ -16,7 +16,6 @@ class ChartBar extends StatelessWidget {
             Container(
               height: constraints.maxHeight * 0.15,
               child: FittedBox(
-                //allows to scale and position its child upon itself.
                 child: Text('\$${spendingAmount.toStringAsFixed(0)}'),
               ),
             ),
@@ -43,9 +42,9 @@ class ChartBar extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                  )
+                  ),
                 ],
-              ), //Allows to place items on top of each other not closely but with free space.
+              ),
             ),
             SizedBox(
               height: constraints.maxHeight * 0.05,
